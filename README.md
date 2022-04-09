@@ -1,13 +1,13 @@
 This is a Telegram Bot written in Python for mirroring files on the Internet to your Google Drive or Telegram. Based on [python-aria-mirror-bot](https://github.com/lzzy12/python-aria-mirror-bot)
 
 # Mirror Group
-- Reflection Mirror : https://t.me/dipeshmirror
+- [KM MIRROR & LEECH STORE](https://t.me/KM_MIRROR_STORES)
 
 # warning those who have access to this repo don't share outside if I found you did it then report and ban from whole mirror community.
 
 # Features:
 
-## By [Anas](https://github.com/anasty17) And [Dipesh](https://github.com/dp0148755)
+## By [Bruce](https://github.com/Brooklyn888) And [Dipesh](https://github.com/dp0148755)
 - qBittorrent
 - Select files from Torrent before downloading using qbittorrent
 - Leech (splitting, thumbnail for each user, setting as document or as media for each user)
