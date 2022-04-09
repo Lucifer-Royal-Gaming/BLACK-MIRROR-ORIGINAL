@@ -1,5 +1,7 @@
 # Heroku Deploy
 
+# By [Bruce](https://github.com/Brooklyn888) And  [Dipesh](https://github.com/dp0148755)
+
 ## How This Branch Works
 
 * We all know most of mirror/leech repository is banned from heroku. What heroku ban exactly ?
