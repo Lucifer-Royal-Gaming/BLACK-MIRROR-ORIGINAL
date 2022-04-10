@@ -1,4 +1,4 @@
-![BLACK MIRROR](https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/512px-Black_Mirror_logo.svg.png)
+![BLACK MIRROR](https://www.kindpng.com/picc/m/450-4506226_the-black-mirror-logo-tiempo-es-oro-paulina.png)
 
 This is a Telegram Bot written in Python for mirroring files on the Internet to your Google Drive or Telegram. Based on [python-aria-mirror-bot](https://github.com/lzzy12/python-aria-mirror-bot)
 
