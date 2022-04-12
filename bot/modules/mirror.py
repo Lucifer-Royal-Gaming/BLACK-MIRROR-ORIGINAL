@@ -200,13 +200,13 @@ class MirrorListener:
             update_all_messages()
 
     def onUploadComplete(self, link: str, size, files, folders, typ, name: str):
-        msg = f'<b>╭─🗂️ Fɪʟᴇɴᴀᴍᴇ: </b><code>{escape(name)}</code>\n\n<b>Size: </b>{size}'
+        msg = f'<b>🗂️ Fɪʟᴇɴᴀᴍᴇ: </b><code>{escape(name)}</code>\n\n<b>Size: </b>{size}'
         if self.isLeech:
             count = len(files)
-            msg += f'\n<b>├─📚 𝐓𝐨𝐭𝐚𝐥 𝐅𝐢𝐥𝐞𝐬: </b>{count}'
+            msg += f'\n<b>📚 𝐓𝐨𝐭𝐚𝐥 𝐅𝐢𝐥𝐞𝐬: </b>{count}'
             if typ != 0:
-                msg += f'\n<b>Corrupted Files: </b>{typ}'
-            msg += f'\n<b>cc: </b>{self.tag}\n\n'
+                msg += f'\n<b>𝗖𝗼𝗿𝗿𝘂𝗽𝘁𝗲𝗱 𝗙𝗶𝗹𝗲𝘀: </b>{typ}'
+            msg += f'\n<b>𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱 𝗕𝘆: </b>{self.tag}\n\n'
             if self.message.chat.type == 'private':
                 sendMessage(msg, self.bot, self.message)
             else:
@@ -225,10 +225,10 @@ class MirrorListener:
             if LOGS_CHATS:
                 try:
                     for i in LOGS_CHATS:
-                        msg1 = f' ╭─🗂️ Fɪʟᴇɴᴀᴍᴇ ⇢ <code>{escape(name)}</code>\n<b>├─🕹️Size ⇢ </b>{size}'
-                        msg1 += f'\n├─📚 𝐓𝐨𝐭𝐚𝐥 𝐅𝐢𝐥𝐞𝐬 ⇢ {count}'
-                        msg1 += f'\n├─⚙️ Tʏᴘᴇ⇢ {typ}'
-                        msg1 += f'\n📬 𝐁𝐲 ⇢ {self.tag}\n\n'
+                        msg1 = f' <b>🗂️ Fɪʟᴇɴᴀᴍᴇ: </b> <code>{escape(name)}</code>\n<b>├─🕹️Size ⇢ </b>{size}'
+                        msg1 += f'\n<b>📚 𝐓𝐨𝐭𝐚𝐥 𝐅𝐢𝐥𝐞𝐬:</b> {count}'
+                        msg1 += f'\n☞ Tʏᴘᴇ: </b> {typ}'
+                        msg1 += f'\n🤴 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐁𝐲:</b>  {self.tag}\n\n'
                         bot.sendMessage(chat_id=i, text=msg1, parse_mode=ParseMode.HTML)                            
                 except Exception as e:
                     LOGGER.warning(e) 
@@ -252,11 +252,11 @@ class MirrorListener:
             else:
                 update_all_messages()
         else:
-            msg += f'\n\n<b>├─⚙️ Tʏᴘᴇ: </b>{typ}'
+            msg += f'\n\n<b> Tʏᴘᴇ: </b>{typ}'
             if ospath.isdir(f'{DOWNLOAD_DIR}{self.uid}/{name}'):
-                msg += f'\n<b>├─📚 Sᴜʙꜰᴏʟᴅᴇʀꜱ: </b>{folders}'
-                msg += f'\n<b>├─📁 Fɪʟᴇꜱ: </b>{files}'
-            msg += f'\n\n<b>╰─📬 𝐁𝐲: </b>{self.tag}'
+                msg += f'\n<b>📚 Sᴜʙꜰᴏʟᴅᴇʀꜱ: </b>{folders}'
+                msg += f'\n<b>📁 Fɪʟᴇꜱ: </b>{files}'
+            msg += f'\n\n<b>🤴𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱 𝗕𝘆: </b>{self.tag}'
             buttons = ButtonMaker()
             link = short_url(link)
             buttons.buildbutton("💥 Drive Link 💥", link)
@@ -270,7 +270,7 @@ class MirrorListener:
                     buttons.buildbutton("⚡ Index Link ⚡", share_url)
                 else:
                     share_url = short_url(share_url)
-                    buttons.buildbutton("👉🏻 Index Link 👈🏻", share_url)
+                    buttons.buildbutton("⚡️ Index Link ⚡️", share_url)
                     if VIEW_LINK:
                         share_urls = f'{INDEX_URL}/{url_path}?a=view'
                         share_urls = short_url(share_urls)
@@ -286,12 +286,12 @@ class MirrorListener:
                 button=InlineKeyboardMarkup(buttons.build_menu(2))
                 try:
                     for i in LOGS_CHATS:                        
-                        msg1 = f'╭─📂 𝐅𝐢𝐥𝐞𝐧𝐚𝐦𝐞 ⇢ <code>{escape(name)}</code>\n<b>├─🕹️Size ⇢ </b>{size}'
+                        msg1 = f'<b>📂𝐅𝐢𝐥𝐞𝐧𝐚𝐦𝐞:</b> <code>{escape(name)}</code>\n<b>├─🕹️Size ⇢ </b>{size}'
                         if ospath.isdir(f'{DOWNLOAD_DIR}{self.uid}/{name}'):
-                            msg1 += f'\n├─📂 𝐒𝐮𝐛-𝐅𝐨𝐥𝐝𝐞𝐫𝐬 ⇢ {folders}'
-                            msg1 += f'\n├─📚 𝐅𝐢𝐥𝐞𝐬 ⇢ {files}'
-                        msg1 += f'\n├─💻 𝐓𝐲𝐩𝐞 ⇢ {typ}'
-                        msg1 += f'\n╰─📬 𝐁𝐲 ⇢ {self.tag}\n\n'
+                            msg1 += f'\n<b>🗃️ 𝐒𝐮𝐛-𝐅𝐨𝐥𝐝𝐞𝐫𝐬:</b> {folders}'
+                            msg1 += f'\n<b>📚 𝐅𝐢𝐥𝐞𝐬:</b> {files}'
+                        msg1 += f'\n<b>💻𝐓𝐲𝐩𝐞:</b> {typ}'
+                        msg1 += f'\n<b>🤴 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱 𝗕𝘆:</b> {self.tag}\n\n'
                         bot.sendMessage(chat_id=i, text=msg1, reply_markup=button, parse_mode=ParseMode.HTML)
                 except Exception as e:
                     LOGGER.warning(e)  
