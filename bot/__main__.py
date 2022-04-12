@@ -40,27 +40,27 @@ def stats(update, context):
     mem_t = get_readable_file_size(memory.total)
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
-    stats = f'╭───《🌐 <b>Bᴏᴛ Sᴛᴀᴛɪsᴛɪᴄs 🌐</b>》\n│\n'\
-            f'├─🤖 <b>Bot Uptime ⇢ </b> {currentTime}\n│\n'\
-            f'├─💽 <b>Total Disk Space ⇢ </b> {total}\n'\
+    stats = f'╭───《🌐 <b>Bᴏᴛ SᴛᴀᴛɪSᴛɪᴄS 🌐</b>》\n│\n'\
+            f'├─🤖 <b>Bot Uptime  </b> {currentTime}\n│\n'\
+            f'├─💽 <b>Total Disk Space  </b> {total}\n'\
             f'├─💻 <b>Used:</b> {used} | 💾<b>Free:</b> {free}\n│\n'\
-            f'├─📤 <b>Upload ⇢ </b> {sent}\n'\
-            f'├─📥 <b>Download ⇢ </b> {recv}\n│\n'\
-            f'├─🖥️ <b>CPU ⇢ </b> {cpuUsage}%\n'\
-            f'├─📏 <b>RAM ⇢ </b> {mem_p}%\n'\
-            f'├─💿 <b>DISK ⇢ </b> {disk}%\n'\
-            f'├─🛰️ <b>Physical Cores ⇢ </b> {p_core}\n'\
-            f'├─⚙️ <b>Total Cores ⇢ </b> {t_core}\n'\
-            f'├─⚡ <b>SWAP ⇢ </b> {swap_t} | <b>Used ⇢ </b> {swap_p}%\n│\n'\
-            f'├─💽 <b>Memory Total ⇢ </b> {mem_t}\n'\
-            f'├─💾 <b>Memory Free ⇢ </b> {mem_a}\n'\
-            f'├─💻 <b>Memory Used ⇢ </b> {mem_u}\n│\n'\
-            f'╰───《☣️ <b>@dipeshmirror</b> ☣️》\n'
+            f'├─📤 <b>Upload  </b> {sent}\n'\
+            f'├─📥 <b>Download  </b> {recv}\n│\n'\
+            f'├─🖥️ <b>CPU  </b> {cpuUsage}%\n'\
+            f'├─📏 <b>RAM  </b> {mem_p}%\n'\
+            f'├─💿 <b>DISK  </b> {disk}%\n'\
+            f'├─🛰️ <b>Physical Cores  </b> {p_core}\n'\
+            f'├─⚙️ <b>Total Cores  </b> {t_core}\n'\
+            f'├─⚡ <b>SWAP  </b> {swap_t} | <b>Used ⇢ </b> {swap_p}%\n│\n'\
+            f'├─💽 <b>Memory Total  </b> {mem_t}\n'\
+            f'├─💾 <b>Memory Free  </b> {mem_a}\n'\
+            f'├─💻 <b>Memory Used  </b> {mem_u}\n│\n'\
+            f'╰───《☣️ <b>@BRUCEMIRROR</b> ☣️》\n'
     sendMessage(stats, context.bot, update)
 
 def start(update, context):
     buttons = ButtonMaker()
-    buttons.buildbutton("😀Mirror Group😀", "https://t.me/dipeshmirror")
+    buttons.buildbutton("😀Mirror Group😀", "https://t.me/KM_MIRROR_STORES")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -247,7 +247,7 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("╭𝐈𝐦𝐦𝐚 𝐑𝐞𝐬𝐭𝐚𝐫𝐭𝐞𝐝  ✯ \n│✯✯✯✯✯✯✯✯✯✯✯ \n╰𝐑𝐞-𝐌𝐢𝐫𝐫𝐨𝐫 𝐘𝐨𝐮'𝐫 𝐓𝐡𝐢𝐧𝐠'𝐬 ✯", chat_id, msg_id)
+        bot.edit_message_text("🆁🅴🆂🆃🅰🆁🆃🅴🅳 🆂🆄🅲🅲🅴🆂🆂🅵🆄🅻🅻🆈!  ✯ \n│✯✯✯✯✯✯✯✯✯✯✯ \n𝐑𝐞-𝐌𝐢𝐫𝐫𝐨𝐫 𝐘𝐨𝐮'𝐫 𝐓𝐡𝐢𝐧𝐠'𝐬 ✯", chat_id, msg_id)
         osremove(".restartmsg")
     
     start_handler = CommandHandler(BotCommands.StartCommand, start, run_async=True)
