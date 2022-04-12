@@ -14,7 +14,7 @@ def authorize(update, context):
     if len(message_) == 2:
         user_id = int(message_[1])
         if user_id in AUTHORIZED_CHATS:
-            msg = '𝐍𝐨 𝐍𝐞𝐞𝐝!! 𝐔𝐬𝐞𝐫 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 ☻'
+            msg = '🤦 𝐍𝐨 𝐍𝐞𝐞𝐝! 𝐔𝐬𝐞𝐫 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 '
         elif DB_URI is not None:
             msg = DbManger().user_auth(user_id)
             AUTHORIZED_CHATS.add(user_id)
@@ -22,12 +22,12 @@ def authorize(update, context):
             AUTHORIZED_CHATS.add(user_id)
             with open('authorized_chats.txt', 'a') as file:
                 file.write(f'{user_id}\n')
-                msg = '𝐔𝐬𝐞𝐫 𝐀𝐮𝐭𝐡𝐫𝐨𝐫𝐢𝐳𝐞𝐝 ✔️'
+                msg = '🤴 𝐔𝐬𝐞𝐫 𝐀𝐮𝐭𝐡𝐫𝐨𝐫𝐢𝐳𝐞𝐝 '
     elif reply_message is None:
         # Trying to authorize a chat
         chat_id = update.effective_chat.id
         if chat_id in AUTHORIZED_CHATS:
-            msg = '𝐍𝐨 𝐍𝐞𝐞𝐝!! 𝐂𝐡𝐚𝐭 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 ☻'
+            msg = '🙅 𝐍𝐨 𝐍𝐞𝐞𝐝! 𝐂𝐡𝐚𝐭 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 '
         elif DB_URI is not None:
             msg = DbManger().user_auth(chat_id)
             AUTHORIZED_CHATS.add(chat_id)
@@ -35,12 +35,12 @@ def authorize(update, context):
             AUTHORIZED_CHATS.add(chat_id)
             with open('authorized_chats.txt', 'a') as file:
                 file.write(f'{chat_id}\n')
-                msg = '𝐂𝐡𝐚𝐭 𝐀𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 ✔️'
+                msg = '😊 𝐂𝐡𝐚𝐭 𝐀𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 '
     else:
         # Trying to authorize someone by replying
         user_id = reply_message.from_user.id
         if user_id in AUTHORIZED_CHATS:
-            msg = '𝐍𝐨 𝐍𝐞𝐞𝐝!! 𝐔𝐬𝐞𝐫 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐀𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝'
+            msg = '🙅 𝐍𝐨 𝐍𝐞𝐞𝐝! 𝐔𝐬𝐞𝐫 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐀𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 '
         elif DB_URI is not None:
             msg = DbManger().user_auth(user_id)
             AUTHORIZED_CHATS.add(user_id)
@@ -48,7 +48,7 @@ def authorize(update, context):
             AUTHORIZED_CHATS.add(user_id)
             with open('authorized_chats.txt', 'a') as file:
                 file.write(f'{user_id}\n')
-                msg = '𝐔𝐬𝐞𝐫 𝐀𝐮𝐭𝐡𝐫𝐨𝐫𝐢𝐳𝐞𝐝 ✔️'
+                msg = '🤴 𝐔𝐬𝐞𝐫 𝐀𝐮𝐭𝐡𝐫𝐨𝐫𝐢𝐳𝐞𝐝 '
     sendMessage(msg, context.bot, update)
 
 def unauthorize(update, context):
@@ -62,10 +62,10 @@ def unauthorize(update, context):
             if DB_URI is not None:
                 msg = DbManger().user_unauth(user_id)
             else:
-                msg = '𝐔𝐬𝐞𝐫 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 ⍢'
+                msg = '😢 𝐔𝐬𝐞𝐫 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 '
             AUTHORIZED_CHATS.remove(user_id)
         else:
-            msg = '𝐍𝐨 𝐍𝐞𝐞𝐝!! 𝐔𝐬𝐞𝐫 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 ☻'
+            msg = '🙅 𝐍𝐨 𝐍𝐞𝐞𝐝!! 𝐔𝐬𝐞𝐫 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 '
     elif reply_message is None:
         # Trying to unauthorize a chat
         chat_id = update.effective_chat.id
@@ -73,10 +73,10 @@ def unauthorize(update, context):
             if DB_URI is not None:
                 msg = DbManger().user_unauth(chat_id)
             else:
-                msg = '𝐂𝐡𝐚𝐭 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 ⍢'
+                msg = '✨ 𝐂𝐡𝐚𝐭 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 '
             AUTHORIZED_CHATS.remove(chat_id)
         else:
-            msg = '𝐍𝐨 𝐍𝐞𝐞𝐝!! 𝐂𝐡𝐚𝐭 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 ☻'
+            msg = '✨𝐍𝐨 𝐍𝐞𝐞𝐝!! 𝐂𝐡𝐚𝐭 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 '
     else:
         # Trying to authorize someone by replying
         user_id = reply_message.from_user.id
@@ -84,10 +84,10 @@ def unauthorize(update, context):
             if DB_URI is not None:
                 msg = DbManger().user_unauth(user_id)
             else:
-                msg = '𝐔𝐬𝐞𝐫 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 ⍢'
+                msg = '😢 𝐔𝐬𝐞𝐫 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 '
             AUTHORIZED_CHATS.remove(user_id)
         else:
-            msg = '𝐍𝐨 𝐍𝐞𝐞𝐝!! 𝐔𝐬𝐞𝐫 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 ☻'
+            msg = ' 😢𝐍𝐨 𝐍𝐞𝐞𝐝!! 𝐔𝐬𝐞𝐫 𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐔𝐧𝐚𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐞𝐝 '
     if DB_URI is None:
         with open('authorized_chats.txt', 'a') as file:
             file.truncate(0)
